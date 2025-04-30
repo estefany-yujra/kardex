@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Personas</h1>
+<a href="{{ url_for('crear') }}" class="btn btn-primary mb-3">Crear Persona</a>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Fecha Nac.</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for persona in personas %}
+        <tr>
+            <td>{{ persona['id'] }}</td>
+            <td>{{ persona['nombre'] }}</td>
+            <td>{{ persona['teléfono'] }}</td>
+            <td>{{ persona['fecha_nac'] }}</td>
+            <td>
+                <a href="{{ url_for('editar', id=persona['id']) }}" class="btn btn-sm btn-warning">Editar</a>
+                <a href="{{ url_for('eliminar', id=persona['id']) }}" class="btn btn-sm btn-danger" onclick="return confirm('¿Seguro que deseas eliminar?')">Eliminar</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

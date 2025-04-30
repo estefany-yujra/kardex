@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Crear Nueva Persona</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Teléfono</label>
+        <input type="text" name="telefono" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fecha de Nacimiento</label>
+        <input type="date" name="fecha_nac" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
